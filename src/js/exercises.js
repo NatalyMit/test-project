@@ -36,16 +36,23 @@ function createExerciseCard({
 }) {
   return `<li class = "list-exercises" data-filter="${name}"><div class="options">
   <div class="box-up">
+  <div class="box-left">
   <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
-  <div class="rating-stars"><span class="options-item-span">${rating}</span><svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-star"></use></svg></div>
+  <div class="rating-stars"><span class="options-item-span">${rating}</span><svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-star"></use></svg></div></div>
+
   
-  <button type = "button" class="btn-start-arrow">START<svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-arrow"></use></svg></button>
+  <button type = "button" class="btn-start-arrow">START<svg class="icon-star" width="14" height="14"><use href="../svg/icons.svg#icon-arrow"></use></svg></button>
   </div>
            
-            <p class="options-item"> <span class="options-item-span">svg</span>${name}</p>
-            <p class="options-item"> Burned calories:${burnedCalories}/${time}</p>
-            <p class="options-item">Body part:${bodyPart}</p>
-            <p>Target:${target}</p></div>
+            <p class="exercises-par"> <span class="options-item-span"><svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-running-man"></use></svg>
+            
+            </span>${name}</p>
+           
+            <p class="options-item"><span class="hid-txt">Burned calories:</span>${burnedCalories}/${time}</p>
+            <div class="info-ex">
+            <p class="options-item"><span class="hid-txt">Body part:</span>${bodyPart}</p>
+            <p class="options-item"><span class="hid-txt">Target:</span>${target}</p></div>
+            </div>
             </li>`;
 }
 
