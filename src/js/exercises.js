@@ -25,9 +25,6 @@ async function getExercises(filter) {
     .then(resp => resp.json())
     .then(data => data.results);
 }
-function renderExerciseCards(exercises) {
-  listExercisesEl.innerHTML = exercises.map(createExerciseCard).join('');
-}
 
 function createExerciseCard({
   bodyPart,
@@ -37,13 +34,18 @@ function createExerciseCard({
   rating,
   time,
 }) {
-  return `<li class = "list-exercises"><div class="options">
-          <p class="options-item"> WORKOUT</p>
-          <span class="options-item-span">${rating}</span>
-          <button type = "button" >START</button>
-          <p class="options-item"> <span class="options-item-span">svg</span>${name}</p>
-          <p class="options-item"> Burned calories:${burnedCalories}/${time}</p>
-          <p class="options-item">Body part:${bodyPart}</p>
-          <p>Target:${target}</p></div>
-          </li>`;
+  return `<li class = "list-exercises" data-filter="${name}"><div class="options">
+            <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
+            
+            <span class="options-item-span">${rating}</span>
+            <button type = "button" >START</button>
+            <p class="options-item"> <span class="options-item-span">svg</span>${name}</p>
+            <p class="options-item"> Burned calories:${burnedCalories}/${time}</p>
+            <p class="options-item">Body part:${bodyPart}</p>
+            <p>Target:${target}</p></div>
+            </li>`;
+}
+
+function renderExerciseCards(exercises) {
+  listExercisesEl.innerHTML = exercises.map(createExerciseCard).join('');
 }
