@@ -85,7 +85,7 @@ a {
   position: absolute;
   top: 50%;
   left: 50px;
-  transform: translate(-50%, -50%);
+  transform: translate(50%, -50%);
   text-align: center;
   margin: 0;
   padding: 0;
@@ -105,7 +105,13 @@ a {
   line-height: 1.5;
 }
 .is-hidden {
-  display: none;
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden !important;
 }
 .list-exercises {
   padding-bottom: 20px;
@@ -116,6 +122,7 @@ a {
   flex-direction: column;
   padding: 16px;
   background-color: #fff;
+  border-radius: 20px;
 }
 .box-up {
   display: flex;
@@ -137,8 +144,15 @@ div.work-div {
   background-color: rgba(126, 132, 127, 1);
   color: #fff;
 }
+.rating-par {
+}
 .rating-stars {
   padding-left: 16px;
+  display: flex;
+  gap: 2px;
+}
+.icon-star {
+  fill: rgba(238, 161, 12, 1);
 }
 .btn-start-arrow {
   width: 54px;
@@ -149,12 +163,32 @@ div.work-div {
   font-size: 14px;
   font-weight: 400;
 }
+.icon-arrow {
+  fill: rgba(27, 27, 27, 1);
+}
 .exercises-par {
+  display: flex;
   padding-top: 25px;
   padding-bottom: 16px;
   font-size: 20px;
   font-weight: 400;
   line-height: 20px;
+}
+.options-item-span {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #6b6c6d;
+}
+.icon-men {
+  fill: #fff;
+  top: 10%;
+  left: 10%;
+  position: absolute;
+}
+.ex-name {
+  padding-left: 16px;
 }
 .info-ex {
   display: flex;
@@ -174,4 +208,30 @@ div.work-div {
   line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
+}
+
+/* Настройки для загрузки */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+  margin-top: 30px;
+}
+.loader::before,
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #6b6c6d;
+  animation: prixClipFix 2s linear infinite;
+}
+.loader::after {
+  border-color: #c2c5c7;
+  animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
+  inset: 6px;
 }
