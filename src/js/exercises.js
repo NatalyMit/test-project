@@ -6,17 +6,18 @@ const listExercisesEl = document.querySelector('.exercises-gallery');
 const BASE_URL = `https://energyflow.b.goit.study/api/`;
 const hiddenClass = 'is-hidden';
 
-imageEl.addEventListener('click', handleContainerMuscles);
-containerMuscles.classList.remove(hiddenClass);
+listImagesEl.addEventListener('click', handleContainerMuscles);
+listImagesEl.classList.remove(hiddenClass);
 getExercises('Muscles').then(renderExerciseCards);
 
 async function handleContainerMuscles(evt) {
+  console.log(evt.target);
   const { filter } = evt.target.dataset;
 
   if (!filter) return;
 
   await getExercises(filter).then(renderExerciseCards);
-  containerMuscles.classList.add(hiddenClass);
+  listImagesEl.classList.add(hiddenClass);
 }
 
 async function getExercises(filter) {
@@ -25,7 +26,7 @@ async function getExercises(filter) {
     .then(data => data.results);
 }
 function renderExerciseCards(exercises) {
-  listExercisesEl.insertAdjacentHTML('beforeend', createExerciseCard);
+  listExercisesEl.innerHTML = exercises.map(createExerciseCard).join('');
 }
 
 function createExerciseCard({

@@ -28,21 +28,19 @@ async function getExercises(filter) {
     .then(resp => resp.json())
     .then(data => data.results);
 }
-
-function renderExerciseCards(exercises) {
-  exercisesContainer.innerHTML = exercises.map(buildExerciseCard);
-}
-
 function buildExerciseCard({ name, filter, imgUrl }) {
   return `
-    <li class="exercise-card" data-filter="${name}">
-    <div clas="exercise-card-img">
-    <img class="exercises-card-img" src="${imgUrl}" alt="${name}">
-    <div class="container-text">
-    <h3 class="desription-category">${name}</h3>
-      <p class="description-category-par">${filter}</p>
-    </div>
-    </div>
-    </li>
-  `;
+      <li class="exercise-card" data-filter="${name}">
+      <div clas="exercise-card-img">
+      <img class="exercises-card-img" src="${imgUrl}" alt="${name}">
+      <div class="container-text">
+      <h3 class="desription-category">${name}</h3>
+        <p class="description-category-par">${filter}</p>
+      </div>
+      </div>
+      </li>
+    `;
+}
+function renderExerciseCards(exercises) {
+  exercisesContainer.innerHTML = exercises.map(buildExerciseCard);
 }
