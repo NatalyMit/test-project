@@ -35,10 +35,13 @@ function createExerciseCard({
   time,
 }) {
   return `<li class = "list-exercises" data-filter="${name}"><div class="options">
-            <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
-            
-            <span class="options-item-span">${rating}</span>
-            <button type = "button" >START</button>
+  <div class="box-up">
+  <div class="work-div"><p class="options-item work-div"> WORKOUT</p></div>
+  <div class="rating-stars"><span class="options-item-span">${rating}</span><svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-star"></use></svg></div>
+  
+  <button type = "button" class="btn-start-arrow">START<svg class="icon-star" width="18" height="18"><use href="../svg/icons.svg#icon-arrow"></use></svg></button>
+  </div>
+           
             <p class="options-item"> <span class="options-item-span">svg</span>${name}</p>
             <p class="options-item"> Burned calories:${burnedCalories}/${time}</p>
             <p class="options-item">Body part:${bodyPart}</p>

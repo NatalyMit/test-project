@@ -107,9 +107,38 @@ a {
 .is-hidden {
   display: none;
 }
-
-.work-div {
-  border-radius: 20%;
-  border-color: gray;
+.list-exercises {
+  padding-bottom: 20px;
+  width: 295px;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #fff;
+}
+.box-up {
+  display: flex;
+}
+div.work-div {
+  display: inline-block;
+  padding-left: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 8px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  background-color: rgba(126, 132, 127, 1);
   color: #fff;
+}
+.rating-stars {
+  padding-left: 16px;
+}
+.btn-start-arrow {
+  border: none;
+  background-color: none;
+  font-size: 14px;
+  font-weight: 400;
 }
